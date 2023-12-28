@@ -13,11 +13,13 @@
           inherit system;
         };
 
-        erlangVersion = "erlangR25";
+        erlangVersion = "erlang_25";
         # Set the Elixir version
         elixirVersion = "elixir_1_14";
 
-        erlang = pkgs.beam.interpreters.${erlangVersion};
+        erlang = pkgs.beam.interpreters.${erlangVersion}.override {
+          configureFlags = ["--disable-jit"];
+        };
         beamPackages = pkgs.beam.packages.${erlangVersion};
         elixir = beamPackages.${elixirVersion};
 
