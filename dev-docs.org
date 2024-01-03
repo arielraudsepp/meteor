@@ -1,0 +1,162 @@
+#+title: Dev Docs
+* Endpoints needed
+- "/skills" -> gets all the skills in the db
+- "/diary_entries/{date}/skills" -> gets all diary entry skills for a particular date
+- "/diary_entries" ->
+* Creating the necessary files
+- there are 4 tables that we need:
+   - diary_entries (contains the entry date, user id, and all the ratings)
+   - diary_entry_skills (association between the diary_entry and skills used)
+   - skills (all the skills, their category and description)
+* [[https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#module-crud-related-generators][CRUD related generators]]
+
+* Starting up the server
+#+begin_src eshell
+mix phx.server
+#+end_src
+
+* Endpoint Testing
+- to see all the available routes:
+#+begin_src eshell
+mix phx.routes
+#+end_src
+
+#+RESULTS:
+#+begin_example
+  GET     /api/skills                 MeteorWeb.SkillController :index
+  GET     /api/skills/:id             MeteorWeb.SkillController :show
+  POST    /api/skills                 MeteorWeb.SkillController :create
+  PATCH   /api/skills/:id             MeteorWeb.SkillController :update
+  PUT     /api/skills/:id             MeteorWeb.SkillController :update
+  DELETE  /api/skills/:id             MeteorWeb.SkillController :delete
+  GET     /api/diary_entries          MeteorWeb.DiaryEntryController :index
+  GET     /api/diary_entries/:id      MeteorWeb.DiaryEntryController :show
+  POST    /api/diary_entries          MeteorWeb.DiaryEntryController :create
+  PATCH   /api/diary_entries/:id      MeteorWeb.DiaryEntryController :update
+  PUT     /api/diary_entries/:id      MeteorWeb.DiaryEntryController :update
+  DELETE  /api/diary_entries/:id      MeteorWeb.DiaryEntryController :delete
+  GET     /dev/dashboard/css-:md5     Phoenix.LiveDashboard.Assets :css
+  GET     /dev/dashboard/js-:md5      Phoenix.LiveDashboard.Assets :js
+  GET     /dev/dashboard              Phoenix.LiveDashboard.PageLive :home
+  GET     /dev/dashboard/:page        Phoenix.LiveDashboard.PageLive :page
+  GET     /dev/dashboard/:node/:page  Phoenix.LiveDashboard.PageLive :page
+  ,*       /dev/mailbox                Plug.Swoosh.MailboxPreview []
+  WS      /live/websocket             Phoenix.LiveView.Socket
+  GET     /live/longpoll              Phoenix.LiveView.Socket
+  POST    /live/longpoll              Phoenix.LiveView.Socket
+
+#+end_example
+
+#+begin_src restclient
+GET http://localhost:4000/api/diary_entries
+
+
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "data": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ]
+}
+// GET http://localhost:4000/api/diary_entries
+// HTTP/1.1 200 OK
+// cache-control: max-age=0, private, must-revalidate
+// content-length: 28
+// content-type: application/json; charset=utf-8
+// date: Wed, 03 Jan 2024 22:57:37 GMT
+// server: Cowboy
+// x-request-id: F6b4bXWg5xMQ8m8AAABC
+// Request duration: 0.131655s
+#+END_SRC
+
+
+#+begin_src restclient
+POST http://localhost:4000/api/diary_entries
+
+Host: localhost:4000
+Accept: application/json
+Content-Type: application/json
+Content-Length: 81
+
+{
+  "anger": 1,
+  "drug_use": 1,
+  "entry_date": 2023-04-23,
+  "fear": 0,
+  "joy": 1,
+  "pain": 3,
+  "sadness": 3,
+  "self_harm": 1,
+  "shame": 1,
+  "suicide": 1,
+  "user_id": 1
+}
+#+end_src
+
+
+#+begin_src restclient
+GET http://localhost:4000/api/skills
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "data": [
+    {
+      "category": "distress_tolerance",
+      "description": "Ctop, take a step back, observe, proceed mindfully",
+      "id": 2,
+      "name": "STOP"
+    },
+    {
+      "category": "distress_tolerance",
+      "description": "Change your body chemistry",
+      "id": 3,
+      "name": "TIPP"
+    },
+    {
+      "category": "mindfulness",
+      "description": "Balance Rational Mind and Emotional Mind",
+      "id": 4,
+      "name": "Wise Mind"
+    },
+    {
+      "category": "emotion_regulation",
+      "description": "Do the opposite of what your emotions tell you to do",
+      "id": 5,
+      "name": "Opposite Action"
+    }
+  ]
+}
+// GET http://localhost:4000/api/skills
+// HTTP/1.1 200 OK
+// cache-control: max-age=0, private, must-revalidate
+// content-length: 475
+// content-type: application/json; charset=utf-8
+// date: Fri, 29 Dec 2023 21:48:20 GMT
+// server: Cowboy
+// x-request-id: F6Vrvsx9JQcQ8m8AAABE
+// Request duration: 0.132209s
+#+END_SRC
+
+#+begin_src restclient
+DELETE http://localhost:4000/api/skills/1
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+// DELETE http://localhost:4000/api/skills/1
+// HTTP/1.1 204 No Content
+// cache-control: max-age=0, private, must-revalidate
+// date: Sun, 17 Sep 2023 19:14:37 GMT
+// server: Cowboy
+// x-request-id: F4PTNhlAfgFc7nYAAABm
+// Request duration: 0.087408s
+#+END_SRC
