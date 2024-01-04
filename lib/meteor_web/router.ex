@@ -8,6 +8,7 @@ defmodule MeteorWeb.Router do
   scope "/api", MeteorWeb do
     pipe_through :api
     resources "/skills", SkillController, except: [:new, :edit]
+    resources "/diary_entries", DiaryEntryController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
