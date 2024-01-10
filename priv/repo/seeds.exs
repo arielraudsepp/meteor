@@ -28,16 +28,22 @@
 #   name: "wise mind"
 # })
 
-Meteor.Repo.insert!(%Meteor.Diary.DiaryEntry{
-  anger: 1,
-  drug_use: 2,
-  entry_date: ~D[2023-02-12],
-  fear: 2,
-  joy: 2,
-  pain: 4,
-  sadness: 3,
-  self_harm: 0,
-  shame: 2,
-  suicide: 2,
-  user_id: 1
+# Meteor.Repo.insert!(%Meteor.Diary.DiaryEntry{
+#   anger: 1,
+#   drug_use: 2,
+#   entry_date: ~D[2023-02-12],
+#   fear: 2,
+#   joy: 2,
+#   pain: 4,
+#   sadness: 3,
+#   self_harm: 0,
+#   shame: 2,
+#   suicide: 2,
+#   user_id: 1
+# })
+
+
+Meteor.Repo.insert!(%Meteor.DiaryEntry.DiaryEntrySkill{
+  diary_entry_id: 1,
+  skill_id: 1
 })

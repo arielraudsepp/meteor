@@ -2,11 +2,10 @@
 * Endpoints needed
 - "/skills" -> gets all the skills in the db
 - "/diary_entries/{date}/skills" -> gets all diary entry skills for a particular date
-- "/diary_entries" ->
+- "/diary_entries/{date}" -> get the diary entry and all associated skills with that diary entry (will need another schema, migration, )
 * Creating the necessary files
-- there are 4 tables that we need:
+- there are 2 tables that we need:
    - diary_entries (contains the entry date, user id, and all the ratings)
-   - diary_entry_skills (association between the diary_entry and skills used)
    - skills (all the skills, their category and description)
 * [[https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#module-crud-related-generators][CRUD related generators]]
 
@@ -48,7 +47,7 @@ mix phx.routes
 #+end_example
 
 #+begin_src restclient
-GET http://localhost:4000/api/diary_entries
+GET http://localhost:4000/api/diary_entry_skills
 
 
 #+end_src
@@ -58,22 +57,21 @@ GET http://localhost:4000/api/diary_entries
 {
   "data": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
+      "diary_entry_id": 1,
+      "id": 1,
+      "skill_id": 1
     }
   ]
 }
-// GET http://localhost:4000/api/diary_entries
+// GET http://localhost:4000/api/diary_entry_skills
 // HTTP/1.1 200 OK
 // cache-control: max-age=0, private, must-revalidate
-// content-length: 28
+// content-length: 51
 // content-type: application/json; charset=utf-8
-// date: Wed, 03 Jan 2024 22:57:37 GMT
+// date: Wed, 10 Jan 2024 23:42:44 GMT
 // server: Cowboy
-// x-request-id: F6b4bXWg5xMQ8m8AAABC
-// Request duration: 0.131655s
+// x-request-id: F6kg6BDx7kl04wAAAACl
+// Request duration: 0.080473s
 #+END_SRC
 
 
