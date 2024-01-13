@@ -10,6 +10,7 @@ defmodule MeteorWeb.Router do
     resources "/skills", SkillController, except: [:new, :edit]
     resources "/diary_entries", DiaryEntryController, except: [:new, :edit]
     resources "/diary_entry_skills", DiaryEntrySkillController, except: [:new, :edit]
+    get "/diary_entry/:entry_date", DiaryEntryController, :show_by_entry_date
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

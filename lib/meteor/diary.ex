@@ -37,6 +37,22 @@ defmodule Meteor.Diary do
   """
   def get_diary_entry!(id), do: Repo.get!(DiaryEntry, id)
 
+    @doc """
+  Gets a single diary_entry by date.
+
+  Raises `Ecto.NoResultsError` if the Diary entry does not exist.
+
+  ## Examples
+
+      iex> get_diary_entry_by_date!(123)
+      %DiaryEntry{}
+
+      iex> get_diary_entry_by_date!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_diary_entry_by_date!(entry_date), do: Repo.get_by(DiaryEntry, entry_date: entry_date)
+
   @doc """
   Creates a diary_entry.
 

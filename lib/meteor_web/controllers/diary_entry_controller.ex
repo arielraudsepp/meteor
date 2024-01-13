@@ -25,6 +25,11 @@ defmodule MeteorWeb.DiaryEntryController do
     render(conn, :show, diary_entry: diary_entry)
   end
 
+  def show_by_entry_date(conn, %{"entry_date" => entry_date}) do
+    diary_entry = Diary.get_diary_entry_by_date!(entry_date)
+    render(conn, :show, diary_entry: diary_entry)
+  end
+
   def update(conn, %{"id" => id, "diary_entry" => diary_entry_params}) do
     diary_entry = Diary.get_diary_entry!(id)
 
