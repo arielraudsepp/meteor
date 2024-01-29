@@ -14,6 +14,7 @@ defmodule Meteor.Diary.DiaryEntry do
     field :shame, :integer
     field :suicide, :integer
     field :user_id, :integer
+    field :notes, :string
 
     timestamps()
   end
@@ -21,7 +22,7 @@ defmodule Meteor.Diary.DiaryEntry do
   @doc false
   def changeset(diary_entry, attrs) do
     diary_entry
-    |> cast(attrs, [:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date])
-    |> validate_required([:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date])
+    |> cast(attrs, [:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date, :notes])
+    |> validate_required([:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date, :notes])
   end
 end

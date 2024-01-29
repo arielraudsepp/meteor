@@ -28,7 +28,8 @@ defmodule MeteorWeb.DiaryEntryJSON do
       drug_use: diary_entry.drug_use,
       suicide: diary_entry.suicide,
       self_harm: diary_entry.self_harm,
-      entry_date: diary_entry.entry_date
+      entry_date: diary_entry.entry_date,
+      notes: diary_entry.notes
     }
   end
 end
