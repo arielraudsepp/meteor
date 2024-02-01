@@ -19,6 +19,7 @@ defmodule Meteor.Diary do
   """
   def list_diary_entries do
     Repo.all(DiaryEntry)
+    |> Repo.preload(:skills)
   end
 
   @doc """

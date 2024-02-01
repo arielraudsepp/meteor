@@ -1,4 +1,5 @@
 defmodule Meteor.Skills.Skill do
+  @derive {Jason.Encoder, only: [:id, :category, :description, :name]}
   use Ecto.Schema
   import Ecto.Changeset
 
