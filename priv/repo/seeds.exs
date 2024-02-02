@@ -43,7 +43,7 @@ Meteor.Repo.insert!(%Meteor.Diary.DiaryEntry{
 })
 
 
-# Meteor.Repo.insert!(%Meteor.DiaryEntry.DiaryEntrySkill{
-#   diary_entry_id: 1,
-#   skill_id: 1
-# })
+Meteor.Repo.insert!(%Meteor.DiaryEntry.DiaryEntrySkill{
+  diary_entry_id: 1,
+  skill_id: 1
+})

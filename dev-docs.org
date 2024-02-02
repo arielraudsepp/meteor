@@ -9,6 +9,23 @@
    - skills (all the skills, their category and description)
 * [[https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#module-crud-related-generators][CRUD related generators]]
 
+
+
+#+begin_src elixir
+# defmodule Woo do
+#   defstruct "1": "baz", "2": "buzz"
+# end
+
+# defmodule Roo do
+#   def transform(value) do
+#     vals = %Woo{}
+#     Map.get(vals, Integer.to_string(value), "default_value")
+#   end
+# end
+
+Roo.transform(2)
+#+end_src
+
 * Starting up the server
 #+begin_src eshell
 mix phx.server
@@ -54,37 +71,53 @@ mix phx.routes
 #+end_example
 
 #+begin_src restclient
-GET http://localhost:4000/api/diary_entry/2023-02-12
+GET http://localhost:4000/api/diary_entries
 #+end_src
 
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "data": {
-    "anger": 1,
-    "drug_use": 2,
-    "entry_date": "2023-02-12",
-    "fear": 2,
-    "id": 1,
-    "joy": 2,
-    "notes": null,
-    "pain": 4,
-    "sadness": 3,
-    "self_harm": 0,
-    "shame": 2,
-    "suicide": 2,
-    "user_id": 1
-  }
+  "data": [
+    {
+      "anger": 1,
+      "drug_use": 2,
+      "entry_date": "2023-02-12",
+      "fear": 2,
+      "id": 1,
+      "joy": 2,
+      "notes": null,
+      "pain": 4,
+      "sadness": 3,
+      "self_harm": 0,
+      "shame": 2,
+      "skills": [
+        {
+          "id": 2,
+          "category": "distress_tolerance",
+          "description": "Ctop, take a step back, observe, proceed mindfully",
+          "name": "STOP"
+        },
+        {
+          "id": 3,
+          "category": "distress_tolerance",
+          "description": "Change your body chemistry",
+          "name": "TIPP"
+        }
+      ],
+      "suicide": 2,
+      "user_id": 1
+    }
+  ]
 }
-// GET http://localhost:4000/api/diary_entry/2023-02-12
+// GET http://localhost:4000/api/diary_entries
 // HTTP/1.1 200 OK
 // cache-control: max-age=0, private, must-revalidate
-// content-length: 165
+// content-length: 398
 // content-type: application/json; charset=utf-8
-// date: Thu, 18 Jan 2024 00:02:29 GMT
+// date: Thu, 01 Feb 2024 23:23:37 GMT
 // server: Cowboy
-// x-request-id: F6tIF6ZaxDVrw7kAAAQj
-// Request duration: 0.045639s
+// x-request-id: F6_grU8gVKossLUAAABF
+// Request duration: 0.159303s
 #+END_SRC
 
 #+begin_src restclient
