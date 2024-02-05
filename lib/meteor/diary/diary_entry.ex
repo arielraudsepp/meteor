@@ -24,7 +24,7 @@ defmodule Meteor.Diary.DiaryEntry do
   def changeset(diary_entry, attrs \\ %{}) do
     diary_entry
     |> cast(attrs, [:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date, :notes])
-    |> cast_assoc(:skills, required: true)
-    |> validate_required([:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date, :notes])
+    |> cast_assoc(:skills)
+    |> validate_required([:user_id, :pain, :sadness, :joy, :shame, :anger, :fear, :drug_use, :suicide, :self_harm, :entry_date])
   end
 end

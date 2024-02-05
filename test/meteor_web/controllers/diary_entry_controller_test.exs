@@ -11,9 +11,17 @@ defmodule MeteorWeb.DiaryEntryControllerTest do
     entry_date: ~D[2024-01-03],
     fear: 42,
     joy: 42,
+    notes: nil,
     pain: 42,
     sadness: 42,
     self_harm: 42,
+    skills: [
+      %{
+        category: "distress_tolerance",
+        description: "Stop, take a step back, observe, proceed mindfully",
+        name: "STOP"
+      }
+    ],
     shame: 42,
     suicide: 42,
     user_id: 42
@@ -24,9 +32,11 @@ defmodule MeteorWeb.DiaryEntryControllerTest do
     entry_date: ~D[2024-01-04],
     fear: 43,
     joy: 43,
+    notes: "samples",
     pain: 43,
     sadness: 43,
     self_harm: 43,
+    skills: [],
     shame: 43,
     suicide: 43,
     user_id: 43
@@ -58,9 +68,17 @@ defmodule MeteorWeb.DiaryEntryControllerTest do
                "entry_date" => "2024-01-03",
                "fear" => 42,
                "joy" => 42,
+               "notes" => nil,
                "pain" => 42,
                "sadness" => 42,
                "self_harm" => 42,
+               "skills" => [
+                 %{
+                   "category" => "distress_tolerance",
+                   "description" => "Stop, take a step back, observe, proceed mindfully",
+                   "name" => "STOP"
+                 }
+               ],
                "shame" => 42,
                "suicide" => 42,
                "user_id" => 42
@@ -89,6 +107,7 @@ defmodule MeteorWeb.DiaryEntryControllerTest do
                "entry_date" => "2024-01-04",
                "fear" => 43,
                "joy" => 43,
+               "notes" => "samples",
                "pain" => 43,
                "sadness" => 43,
                "self_harm" => 43,

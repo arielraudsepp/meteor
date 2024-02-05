@@ -8,6 +8,7 @@ defmodule Meteor.Diary do
 
   alias Meteor.Diary.DiaryEntry
 
+  @spec list_diary_entries :: nil | [%{optional(atom) => any}] | %{optional(atom) => any}
   @doc """
   Returns the list of diary_entries.
 
@@ -36,7 +37,10 @@ defmodule Meteor.Diary do
       ** (Ecto.NoResultsError)
 
   """
-  def get_diary_entry!(id), do: Repo.get!(DiaryEntry, id)
+  def get_diary_entry!(id) do
+    Repo.get!(DiaryEntry, id)
+    |> Repo.preload(:skills)
+  end
 
     @doc """
   Gets a single diary_entry by date.

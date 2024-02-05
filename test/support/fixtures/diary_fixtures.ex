@@ -16,10 +16,12 @@ defmodule Meteor.DiaryFixtures do
         entry_date: ~D[2024-01-03],
         fear: 42,
         joy: 42,
+        notes: nil,
         pain: 42,
         sadness: 42,
         self_harm: 42,
         shame: 42,
+        skills: [],
         suicide: 42,
         user_id: 42
       })

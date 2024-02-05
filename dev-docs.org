@@ -51,12 +51,6 @@ mix phx.routes
   PATCH   /api/diary_entries/:id        MeteorWeb.DiaryEntryController :update
   PUT     /api/diary_entries/:id        MeteorWeb.DiaryEntryController :update
   DELETE  /api/diary_entries/:id        MeteorWeb.DiaryEntryController :delete
-  GET     /api/diary_entry_skills       MeteorWeb.DiaryEntrySkillController :index
-  GET     /api/diary_entry_skills/:id   MeteorWeb.DiaryEntrySkillController :show
-  POST    /api/diary_entry_skills       MeteorWeb.DiaryEntrySkillController :create
-  PATCH   /api/diary_entry_skills/:id   MeteorWeb.DiaryEntrySkillController :update
-  PUT     /api/diary_entry_skills/:id   MeteorWeb.DiaryEntrySkillController :update
-  DELETE  /api/diary_entry_skills/:id   MeteorWeb.DiaryEntrySkillController :delete
   GET     /api/diary_entry/:entry_date  MeteorWeb.DiaryEntryController :show_by_entry_date
   GET     /dev/dashboard/css-:md5       Phoenix.LiveDashboard.Assets :css
   GET     /dev/dashboard/js-:md5        Phoenix.LiveDashboard.Assets :js
@@ -114,10 +108,10 @@ GET http://localhost:4000/api/diary_entries
 // cache-control: max-age=0, private, must-revalidate
 // content-length: 398
 // content-type: application/json; charset=utf-8
-// date: Thu, 01 Feb 2024 23:23:37 GMT
+// date: Fri, 02 Feb 2024 22:21:58 GMT
 // server: Cowboy
-// x-request-id: F6_grU8gVKossLUAAABF
-// Request duration: 0.159303s
+// x-request-id: F7Ar5HXX_asQ8m8AAAMD
+// Request duration: 0.146277s
 #+END_SRC
 
 #+begin_src restclient
