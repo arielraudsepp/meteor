@@ -1,9 +1,9 @@
 defmodule MeteorWeb.DiaryEntryControllerTest do
   use MeteorWeb.ConnCase
 
-  import Meteor.DiaryFixtures
+  import Meteor.DiaryEntriesFixtures
 
-  alias Meteor.Diary.DiaryEntry
+  alias Meteor.DiaryEntries.DiaryEntry
 
   @create_attrs %{
     anger: 42,

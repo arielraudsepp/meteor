@@ -1,4 +1,4 @@
-defmodule Meteor.DiaryFixtures do
+defmodule Meteor.DiaryEntriesFixtures do
   @moduledoc """
   This module defines test helpers for creating
   entities via the `Meteor.Diary` context.
@@ -25,7 +25,7 @@ defmodule Meteor.DiaryFixtures do
         suicide: 42,
         user_id: 42
       })
-      |> Meteor.Diary.create_diary_entry()
+      |> Meteor.DiaryEntries.create_diary_entry()
 
     diary_entry
   end

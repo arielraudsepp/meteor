@@ -1,5 +1,5 @@
 defmodule MeteorWeb.DiaryEntryJSON do
-  alias Meteor.Diary.DiaryEntry
+  alias Meteor.DiaryEntries.DiaryEntry
 
   @doc """
   Renders a list of diary_entries.

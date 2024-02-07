@@ -1,4 +1,4 @@
-defmodule Meteor.Diary.DiaryEntry do
+defmodule Meteor.DiaryEntries.DiaryEntry do
   use Ecto.Schema
   import Ecto.Changeset
 
