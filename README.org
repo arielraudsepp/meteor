@@ -1,0 +1,11 @@
+#+title: Readme
+
+Alternative version of Shooting Star written in Elixir using Phoenix framework. Consists of the endpoints needed for creating diary entries and skills, including associations using join table
+
+* How to start using Meteor:
+- packages managed by [[https://nixos.org/][Nix]], so ensure you have it installed
+- Or, if you prefer not to use Nix, you will need Elixir, Erlang and Postgres. See https://hexdocs.pm/phoenix/installation.html for more installation instructions
+- Install Hex package manager with `mix local.hex`
+- Run `mix setup` to install and setup dependencies
+- Start Phoenix endpoint with `mix phx.server`
+- Access endpoints at http://localhost:4000
