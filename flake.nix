@@ -30,6 +30,7 @@
             erlang
             beamPackages.elixir-ls
             elixir
+            pkgs.postgresql_16
           ];
         };
       }
